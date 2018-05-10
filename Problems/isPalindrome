@@ -16,3 +16,29 @@ Input: 10
 Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 '''
+
+class Solution(object):
+    def isPalindrome(self, x):
+        l = []
+        c = 1
+        r = 0
+        y = x
+        if x < 0:
+            return False
+        else:
+            while y > 0:
+                l.append(y%10**c/10**(c-1))
+                y -= y%10**c
+                c += 1
+        for i in range(len(l)):
+            r += l[i]*10**(c-2)
+            c -= 1
+        return x == r
+            
+                
+        """
+        :type x: int
+        :rtype: bool
+        """
+
+
